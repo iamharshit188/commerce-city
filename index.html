@@ -1,46 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Commerce City</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="css/style.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commerce City</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('logo.png') center/cover fixed; /* Change 'background_image.jpg' to your actual background image */
+            background-blur: 10px; /* Adjust the blur level as needed */
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50; /* Midnight Blue */
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #ecf0f1; /* Clouds */
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            padding: 0.5em 1em;
+            text-decoration: none;
+            color: #333;
+            margin: 0 1em;
+        }
+
+        section {
+            display: inline-block;
+            width: 45%;
+            margin: 1em;
+            background-color: #ecf0f1; /* Clouds */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 1em;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        section:hover {
+            transform: scale(1.05);
+        }
+
+        section img {
+            height: 200px;
+            margin-bottom: 1em;
+            border-radius: 5px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #2c3e50; /* Midnight Blue */
+            color: white;
+            padding: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
-
 <body>
-  <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="./logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" />
-        Mahamana Commerce City
-      </a>
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact US</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Schedule a call</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
+<header>
+    <h1>Mahamana Commerce City</h1>
+</header>
+
+<nav>
+    <a href="#banking">Banking</a>
+    <a href="#cafeteria">Cafeteria</a>
+    <a href="#finance">Finance</a>
+    <a href="#realestate">Real Estate</a>
+    <!-- Add more sections as needed -->
+</nav>
+
+<section id="banking">
+    <img src="banking_image.jpg" alt="Banking Image" onclick="showPopup('Banking', 'Description about Banking.')">
+    <p> Mahamana Banking.</p>
+</section>
+
+<section id="cafeteria">
+    <img src="cafeteria_image.jpg" alt="Cafeteria Image" onclick="showPopup('Cafeteria', 'Description about Cafeteria.')">
+    <p> Mahamana Cafeteria.</p>
+</section>
+
+<section id="finance">
+    <img src="finance_image.jpg" alt="Finance Image" onclick="showPopup('Finance', 'Description about Finance.')">
+    <p> Mahamana Finance.</p>
+</section>
+
+<section id="realestate">
+    <img src="realestate_image.jpg" alt="Real Estate Image" onclick="showPopup('Real Estate', 'Description about Real Estate.')">
+    <p> Mahamana Real Estate.</p>
+</section>
+
+<!-- Add more sections as needed -->
+
+<div class="popup" onclick="closePopup()">
+    <div class="popup-content" id="popupContent">
+    </div>
+</div>
+
+<footer>
+    &copy; 2023 Commerce City
+</footer>
+
+<script>
+    function showPopup(title, description) {
+        document.getElementById('popupContent').innerHTML = `
+            <h2>${title}</h2>
+            <p>${description}</p>
+        `;
+        document.querySelector('.popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.querySelector('.popup').style.display = 'none';
+    }
+</script>
+
+</body>
 </html>
